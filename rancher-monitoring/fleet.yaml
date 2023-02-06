@@ -18,5 +18,13 @@ diff:
       name: rancher-monitoring-admission
       operations:
         - {"op":"remove", "path":"/webhooks/0/failurePolicy"}
+    - apiVersion: monitoring.coreos.com/v1
+      kind: Prometheus
+      name: rancher-monitoring-prometheus
+      operations:
+        - {"op": "remove", "path": "spec/enableAdminAPI"}
+        - {"op": "remove", "path": "spec/listenLocal"}
+        - {"op": "remove", "path": "spec/paused"}
+        - {"op": "remove", "path": "spec/resources/limits/cpu"}
 dependsOn:
   - name: monitoring-rancher-monitoring-crd
