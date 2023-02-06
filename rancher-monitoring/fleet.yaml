@@ -22,9 +22,6 @@ diff:
       kind: Prometheus
       name: rancher-monitoring-prometheus
       operations:
-        - {"op": "remove", "path": "/spec/enableAdminAPI"}
-        - {"op": "remove", "path": "/spec/listenLocal"}
-        - {"op": "remove", "path": "/spec/paused"}
-        - {"op": "remove", "path": "/spec/resources/limits/cpu"}
+        - {"op": "remove", "path": "/spec"}
 dependsOn:
   - name: monitoring-rancher-monitoring-crd
