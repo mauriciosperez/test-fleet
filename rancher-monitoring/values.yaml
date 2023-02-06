@@ -1,0 +1,39 @@
+alertmanager:
+  alertmanagerSpec:
+    configSecret: alertmanager-rancher-monitoring-alertmanager
+    useExistingSecret: true
+grafana:
+  forceDeployDatasources: true
+  sidecar:
+    dashboards:
+      searchNamespace: ALL
+    datasources:
+      searchNamespace: ALL
+k3sControllerManager:
+  enabled: true
+k3sProxy:
+  enabled: true
+k3sScheduler:
+  enabled: true
+k3sServer:
+  enabled: true
+prometheus:
+  ingress:
+    enabled: true
+    hosts:
+    - prometheus.masprvs.com.br
+    paths:
+    - /
+  prometheusSpec:
+    additionalScrapeConfigsSecret:
+      enabled: true
+      key: teste.yaml
+      name: additional-scrape-configs
+    enableAdminAPI: true
+    evaluationInterval: 1m
+    probeSelectorNilUsesHelmValues: false
+    resources:
+      requests:
+        memory: 1750Mi
+    retentionSize: 50GiB
+    scrapeInterval: 1m
