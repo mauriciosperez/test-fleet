@@ -23,5 +23,7 @@ diff:
       name: rancher-monitoring-prometheus
       operations:
         - {"op": "remove", "path": "/spec"}
+        - {"op": "remove", "path": "/prometheus/prometheusSpec/paused"}
+        - {"op": "remove", "path": "/prometheus/prometheusSpec/resources/limits/cpu"}
 dependsOn:
   - name: monitoring-rancher-monitoring-crd
