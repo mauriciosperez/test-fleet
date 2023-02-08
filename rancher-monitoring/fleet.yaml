@@ -21,6 +21,7 @@ diff:
     - apiVersion: monitoring.coreos.com/v1
       kind: Prometheus
       name: rancher-monitoring-prometheus
+      namespace: cattle-monitoring-system
       operations:
         - {"op": "remove", "path": "/spec/enableAdminAPI"}
         - {"op": "remove", "path": "/spec/listenLocal"}
