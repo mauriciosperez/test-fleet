@@ -24,7 +24,7 @@ diff:
       operations:
         - {"op": "remove", "path": "/spec/enableAdminAPI"}
         - {"op": "remove", "path": "/spec/listenLocal"}
-        - {"op": "remove", "path": "/prometheus/prometheusSpec/paused"}
-        - {"op": "remove", "path": "/prometheus/prometheusSpec/resources/limits/cpu"}
+        - {"op": "remove", "path": "/spec/paused"}
+        - {"op": "remove", "path": "/spec/resources/limits"}
 dependsOn:
   - name: monitoring-rancher-monitoring-crd

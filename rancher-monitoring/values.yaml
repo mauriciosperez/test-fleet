@@ -30,9 +30,12 @@ prometheus:
       key: teste.yaml
       name: additional-scrape-configs
     enableAdminAPI: true
+    paused: false
     evaluationInterval: 1m
     probeSelectorNilUsesHelmValues: false
     resources:
+      limits:
+        cpu: 1000m
       requests:
         memory: 1750Mi
     retentionSize: 50GiB
