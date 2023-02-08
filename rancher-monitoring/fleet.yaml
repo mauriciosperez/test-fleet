@@ -22,7 +22,7 @@ diff:
       kind: Prometheus
       name: rancher-monitoring-prometheus
       operations:
-        - {"op": "replace", "path": "/spec/enableAdminAPI", "value": true}
+        - {"op": "remove", "path": "/spec/enableAdminAPI"}
         - {"op": "remove", "path": "/spec/listenLocal"}
         - {"op": "remove", "path": "/prometheus/prometheusSpec/paused"}
         - {"op": "remove", "path": "/prometheus/prometheusSpec/resources/limits/cpu"}
