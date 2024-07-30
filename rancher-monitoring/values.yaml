@@ -4,6 +4,11 @@ alertmanager:
     useExistingSecret: true
 grafana:
   forceDeployDatasources: true
+  ingress:
+    enabled: true
+    hosts:
+    - grafana.masprvs.com.br
+    pathType: Prefix
   sidecar:
     dashboards:
       searchNamespace: ALL
@@ -25,10 +30,6 @@ prometheus:
     paths:
     - /
   prometheusSpec:
-    additionalScrapeConfigsSecret:
-      enabled: true
-      key: teste.yaml
-      name: additional-scrape-configs
     enableAdminAPI: true
     paused: false
     evaluationInterval: 1m
