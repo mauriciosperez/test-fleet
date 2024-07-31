@@ -33,9 +33,5 @@ prometheus:
     paused: false
     evaluationInterval: 1m
     probeSelectorNilUsesHelmValues: false
-    resources:
-      limits:
-        cpu: 1000m
-      requests:
-        memory: 1750Mi
+    resources: {}
     scrapeInterval: 1m
