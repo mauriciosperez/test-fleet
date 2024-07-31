@@ -1,3 +1,6 @@
+alertmanager:
+  alertmanagerSpec:
+    useExistingSecret: true
 grafana:
   forceDeployDatasources: true
   ingress:
