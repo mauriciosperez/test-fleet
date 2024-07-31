@@ -1,7 +1,3 @@
-alertmanager:
-  alertmanagerSpec:
-    configSecret: alertmanager-rancher-monitoring-alertmanager
-    useExistingSecret: true
 grafana:
   forceDeployDatasources: true
   ingress:
@@ -39,5 +35,4 @@ prometheus:
         cpu: 1000m
       requests:
         memory: 1750Mi
-    retentionSize: 50GiB
     scrapeInterval: 1m
