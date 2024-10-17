@@ -1,7 +1,7 @@
 alertmanager:
-  alertmanagerSpec:
-    configSecret: alertmanager-rancher-monitoring-alertmanager
-    useExistingSecret: true
+  enabled: false
+ingressNginx:
+  enabled: true
 grafana:
   forceDeployDatasources: true
   sidecar:
@@ -9,26 +9,42 @@ grafana:
       searchNamespace: ALL
     datasources:
       searchNamespace: ALL
-k3sControllerManager:
-  enabled: true
-k3sProxy:
-  enabled: true
-k3sScheduler:
-  enabled: true
-k3sServer:
-  enabled: true
+  grafana.ini:
+    users:
+      auto_assign_org_role: Viewer
+    auth:
+      disable_login_form: false
+    auth.anonymous:
+      enabled: true
+      org_role: Viewer
+    auth.basic:
+      enabled: false
+    auth.ldap:
+      enabled: true
+      config_file: /etc/grafana/ldap.toml
+    dashboards:
+      # Modify this value to change the default dashboard shown on the main Grafana page
+      default_home_dashboard_path: /tmp/dashboards/rancher-default-home.json
+    security:
+      # Required to embed dashboards in Rancher Cluster Overview Dashboard on Cluster Explorer
+      allow_embedding: true
+  defaultDashboardsTimezone: browser
+#  nodeSelector:
+#    kubernetes.io/hostname: rch-lab-04
+  ingress:
+    enabled: true
+    hosts:
+    - grafana.masprvs.lab
+    ingressClassName: ingress-nginx
+    pathType: Prefix
 prometheus:
   ingress:
     enabled: true
     hosts:
-    - prometheus.masprvs.com.br
-    paths:
-    - /
+    - prometheus.masprvs.lab
+    ingressClassName: ingress-nginx
+    pathType: ImplementationSpecific
   prometheusSpec:
-    additionalScrapeConfigsSecret:
-      enabled: true
-      key: teste.yaml
-      name: additional-scrape-configs
     enableAdminAPI: true
     paused: false
     evaluationInterval: 1m
@@ -38,5 +54,5 @@ prometheus:
         cpu: 1000m
       requests:
         memory: 1750Mi
-    retentionSize: 50GiB
+    retentionSize: 5GiB
     scrapeInterval: 1m
