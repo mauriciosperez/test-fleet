@@ -35,14 +35,14 @@ grafana:
     enabled: true
     hosts:
     - grafana.masprvs.lab
-    ingressClassName: ingress-nginx
+    ingressClassName: nginx
     pathType: Prefix
 prometheus:
   ingress:
     enabled: true
     hosts:
     - prometheus.masprvs.lab
-    ingressClassName: ingress-nginx
+    ingressClassName: nginx
     pathType: ImplementationSpecific
   prometheusSpec:
     enableAdminAPI: true
