@@ -1,7 +1,7 @@
 alertmanager:
   enabled: false
-ingressNginx:
-  enabled: true
+#ingressNginx:
+#  enabled: true
 grafana:
   forceDeployDatasources: true
   sidecar:
